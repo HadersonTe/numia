@@ -90,6 +90,26 @@ h2{font-size:18px;font-weight:700;letter-spacing:-.01em}
 .wm::before,.wm::after{content:"";position:absolute;inset:0}
 .wm::before{background:var(--ink);-webkit-mask:url(wm-letters.png) center/100% 100% no-repeat;mask:url(wm-letters.png) center/100% 100% no-repeat}
 .wm::after{background:url(wm-dots.png) center/100% 100% no-repeat}
+/* Botón de volver en la cabecera */
+.lead{display:flex;align-items:center;gap:10px;min-width:0}
+.iconbtn.back svg{color:var(--ink);width:22px;height:22px}
+@media (prefers-reduced-motion:no-preference){.iconbtn.back:not([hidden]){animation:backIn .25s var(--ease) both}}
+@keyframes backIn{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
+/* Fila de pago fijo: nombre y valor arriba, fecha completa, y acciones abajo */
+.item.bill{grid-template-columns:40px 1fr;align-items:start;padding:12px 0}
+.bmain{min-width:0;display:grid;gap:2px}
+.btop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;min-width:0}
+.btop b{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bmain > small{display:block;color:var(--muted);font-size:12.5px}
+.bmain .bdate b{color:var(--ink);font-weight:600}
+.acts{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+.sbtn{min-height:36px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:transform .15s var(--ease)}
+.sbtn:active{transform:scale(.96)}
+.sbtn.pay{background:var(--brand);color:var(--brand-ink);border-color:transparent}
+.sbtn.push{margin-left:auto}
+.sbtn svg{width:15px;height:15px}
+input[type=date]{min-height:48px;-webkit-appearance:none;appearance:none;text-align:left}
+input[type=date]::-webkit-date-and-time-value{text-align:left}
 .hero-brand{display:grid;justify-items:start;gap:16px}
 .hero-brand .logo{width:76px;height:76px;border-radius:20px;box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 8%,transparent),0 14px 30px -10px rgba(4,60,40,.55)}
 .hero-brand .wm{height:34px;width:152px}
@@ -490,7 +510,7 @@ details.module[open] summary{border-bottom:1px solid var(--line)}
 <body>
 <div class="wrap">
   <header class="top" id="top">
-    <div class="brand" role="img" aria-label="NüMIA"><img class="logo" src="logo.png" alt="" width="32" height="32"><span class="wm" aria-hidden="true"></span></div>
+    <div class="lead"><button class="iconbtn back" id="backBtn" type="button" aria-label="Volver" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button><div class="brand" role="img" aria-label="NüMIA"><img class="logo" src="logo.png" alt="" width="32" height="32"><span class="wm" aria-hidden="true"></span></div></div>
     <button class="iconbtn" id="settingsBtn" type="button" aria-label="Ajustes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
   </header>
   <main id="view" class="view"></main>
