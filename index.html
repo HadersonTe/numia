@@ -83,8 +83,21 @@ h2{font-size:18px;font-weight:700;letter-spacing:-.01em}
 
 /* Cabecera */
 .top{display:flex;justify-content:space-between;align-items:center;padding-block:12px 2px;gap:10px}
-.brand{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:-.02em}
-.brand svg{width:30px;height:30px;flex:none}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+/* Logo y nombre NüMIA: el nombre toma el color del texto (claro u oscuro) y los puntos de la ü quedan verdes */
+.logo{width:32px;height:32px;border-radius:9px;flex:none;display:block;box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 10%,transparent),0 2px 8px -2px rgba(4,40,30,.35)}
+.wm{position:relative;display:block;flex:none;height:19px;width:85px}
+.wm::before,.wm::after{content:"";position:absolute;inset:0}
+.wm::before{background:var(--ink);-webkit-mask:url(wm-letters.png) center/100% 100% no-repeat;mask:url(wm-letters.png) center/100% 100% no-repeat}
+.wm::after{background:url(wm-dots.png) center/100% 100% no-repeat}
+.hero-brand{display:grid;justify-items:start;gap:16px}
+.hero-brand .logo{width:76px;height:76px;border-radius:20px;box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 8%,transparent),0 14px 30px -10px rgba(4,60,40,.55)}
+.hero-brand .wm{height:34px;width:152px}
+.foot-brand{display:flex;align-items:center;justify-content:center;gap:8px;opacity:.9;margin-top:4px}
+.foot-brand .logo{width:24px;height:24px;border-radius:7px}
+.foot-brand .wm{height:14px;width:63px}
+@media (prefers-reduced-motion:no-preference){.hero-brand .logo{animation:logoIn .6s cubic-bezier(.2,.8,.2,1) both}.hero-brand .wm{animation:logoIn .6s .08s cubic-bezier(.2,.8,.2,1) both}}
+@keyframes logoIn{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
 .iconbtn{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;transition:transform .15s var(--ease)}
 .iconbtn:active{transform:scale(.94)}
 .iconbtn svg{width:20px;height:20px;color:var(--muted)}
@@ -477,7 +490,7 @@ details.module[open] summary{border-bottom:1px solid var(--line)}
 <body>
 <div class="wrap">
   <header class="top" id="top">
-    <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="11" fill="var(--brand)"/><rect x="11" y="20" width="5" height="10" rx="2" fill="var(--accent)"/><rect x="17.5" y="15" width="5" height="15" rx="2" fill="var(--accent)"/><rect x="24" y="10" width="5" height="20" rx="2" fill="var(--accent)"/></svg>NüMIA</div>
+    <div class="brand" role="img" aria-label="NüMIA"><img class="logo" src="logo.png" alt="" width="32" height="32"><span class="wm" aria-hidden="true"></span></div>
     <button class="iconbtn" id="settingsBtn" type="button" aria-label="Ajustes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
   </header>
   <main id="view" class="view"></main>

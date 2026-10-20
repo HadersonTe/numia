@@ -443,7 +443,7 @@ let onb = { step: 0, name: '', path: '', income: '', incomeType: 'fijo', saved: 
 function onbView() {
   const S = onb.step; const dots = `<div class="steps">${[0, 1, 2, 3, 4].map(i => `<i class="${i <= S ? 'on' : ''}"></i>`).join('')}</div>`;
   if (S === 0) return `<section class="onb">
-    <div class="brand" style="font-size:30px"><svg viewBox="0 0 40 40" aria-hidden="true" style="width:44px;height:44px"><rect x="1" y="1" width="38" height="38" rx="11" fill="var(--brand)"/><rect x="11" y="20" width="5" height="10" rx="2" fill="var(--accent)"/><rect x="17.5" y="15" width="5" height="15" rx="2" fill="var(--accent)"/><rect x="24" y="10" width="5" height="20" rx="2" fill="var(--accent)"/></svg>NüMIA</div>
+    <div class="hero-brand" role="img" aria-label="NüMIA"><img class="logo" src="logo.png" alt="" width="76" height="76"><span class="wm" aria-hidden="true"></span></div>
     <h1>Tu plata, bajo control.</h1>
     <p>Controla tus gastos, sal de deudas y aprende a ahorrar, a tu ritmo y sin que nadie te juzgue.</p>
     <label class="field" for="oName">¿Cómo te llamas?<input id="oName" value="${esc(onb.name)}" placeholder="Tu nombre" autocomplete="given-name"></label>
@@ -1176,6 +1176,7 @@ function openSettings() {
     <div class="panel tight" style="box-shadow:none"><h2>Tus datos</h2><span class="sub">Se guardan solo en este celular. ${last ? 'Última copia: ' + dateLong(last.slice(0, 10)) + '.' : 'Aún no has hecho copias.'}</span>
       <div class="grid2"><button class="ghost" data-a="export" type="button" style="min-height:48px">Hacer copia</button><button class="ghost" data-a="import" type="button" style="min-height:48px">Restaurar copia</button></div><input type="file" id="bkFile" accept="application/json,.json" hidden></div>
     <button class="ghost" data-a="wipe" type="button" style="min-height:48px;color:var(--loss)">Borrar todo y empezar de nuevo</button>
+    <div class="foot-brand" role="img" aria-label="NüMIA"><img class="logo" src="logo.png" alt="" width="24" height="24"><span class="wm" aria-hidden="true"></span></div>
     <p class="sub" style="margin:0;text-align:center">NüMIA es una herramienta educativa. No reemplaza la asesoría de un profesional financiero.</p>`);
   $$('[data-money]', sh).forEach(moneyInput); requestAnimationFrame(() => segThumb($('#themeSeg', sh)));
   $('#bkFile', sh).onchange = async e => {
