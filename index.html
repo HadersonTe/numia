@@ -371,6 +371,15 @@ input[type=date]::-webkit-date-and-time-value{text-align:left}
 .onb{min-height:calc(100vh - 40px);display:grid;align-content:center;gap:18px;padding-block:20px}
 .onb h1{font-size:28px;letter-spacing:-.02em}
 .onb p{margin:0;color:var(--muted);font-size:16px}
+/* Bienvenida: logo y nombre centrados con un brillo menta detrás */
+.welcome .hero-brand{justify-items:center;gap:18px;position:relative;isolation:isolate;padding-top:8px;margin-bottom:10px}
+.welcome .hero-brand::before{content:"";position:absolute;z-index:-1;left:50%;top:-34px;width:260px;height:260px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 30%,transparent),transparent 72%);pointer-events:none}
+.welcome .hero-brand .logo{width:108px;height:108px;border-radius:28px;box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 8%,transparent),0 22px 44px -14px rgba(4,60,40,.6)}
+.welcome .hero-brand .wm{height:46px;width:206px}
+.welcome h1{text-align:center;margin-top:8px}
+.welcome > p{text-align:center}
+@media (prefers-reduced-motion:no-preference){.welcome .hero-brand::before{animation:glow 4.5s ease-in-out infinite}}
+@keyframes glow{0%,100%{opacity:.75;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.06)}}
 .choice{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;text-align:left;width:100%;border:1.5px solid var(--line);background:var(--surface);border-radius:16px;padding:14px;transition:border-color .2s,transform .15s var(--ease)}
 .choice:active{transform:scale(.98)}
 .choice.on{border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 18%,transparent)}

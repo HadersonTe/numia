@@ -463,7 +463,7 @@ addEventListener('resize', () => $$('.seg').forEach(segThumb));
 let onb = { step: 0, name: '', path: '', income: '', incomeType: 'fijo', saved: '', debts: [] };
 function onbView() {
   const S = onb.step; const dots = `<div class="steps">${[0, 1, 2, 3, 4].map(i => `<i class="${i <= S ? 'on' : ''}"></i>`).join('')}</div>`;
-  if (S === 0) return `<section class="onb">
+  if (S === 0) return `<section class="onb welcome">
     <div class="hero-brand" role="img" aria-label="NüMIA"><img class="logo" src="logo.png" alt="" width="76" height="76"><span class="wm" aria-hidden="true"></span></div>
     <h1>Tu plata, bajo control.</h1>
     <p>Controla tus gastos, sal de deudas y aprende a ahorrar, a tu ritmo y sin que nadie te juzgue.</p>
