@@ -384,7 +384,7 @@ function checkBadges() {
 }
 
 /* ============ Tema ============ */
-const THEME_BG = { light: '#F3F4F8', dark: '#0D0F22' };
+const THEME_BG = { light: '#F2F5F7', dark: '#071017' };
 function applyTheme() {
   const th = state.profile.theme || 'auto', r = document.documentElement;
   if (th === 'auto') { if (r.dataset.pilasTheme) { delete r.dataset.theme; delete r.dataset.pilasTheme; } }

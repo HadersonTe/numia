@@ -8,8 +8,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="NüMIA">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#F3F4F8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0D0F22" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F2F5F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#071017" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Tu entrenador de plata personal: controla tus gastos, sal de deudas y aprende a ahorrar.">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -19,27 +19,27 @@
 <style>
 /* Layout: app de una columna para el celular — cabecera, vista activa, barra inferior de pestañas con botón central de registrar; hojas inferiores apiladas para formularios */
 :root{
-  --bg:#F3F4F8; --surface:#FFFFFF; --surface-2:#F7F8FC; --ink:#14173A; --muted:#565D78; --faint:#A0A5BC; --line:#E2E4EE; --grid:#E9EBF3;
-  --brand:#14173A; --brand-ink:#FFFFFF; --accent:#FFB627; --accent-ink:#2A1E00;
+  --bg:#F2F5F7; --surface:#FFFFFF; --surface-2:#F6F9FA; --ink:#0C1B26; --muted:#506270; --faint:#98A6B0; --line:#DEE6EB; --grid:#E6ECF0;
+  --brand:#0C1B26; --brand-ink:#FFFFFF; --accent:#3EDB98; --accent-ink:#03291A;
   --gain:#0B7A4E; --gain-fill:#19B97A; --gain-btn:#0B7A4E; --loss:#C2362E; --loss-fill:#E5534A; --loss-btn:#C2362E; --warn:#8A5B00; --warn-fill:#F2A516;
-  --hero:#171B4A; --hero-2:#272C78; --hero-ink:#F3F4FF; --hero-muted:#B9BDEB; --hero-line:rgba(255,255,255,.14); --hero-gain:#5BE0A8; --hero-loss:#FF8A80; --hero-neg:#FFB3AD; --hero-debt:#9AA2F0;
+  --hero:#0B1A26; --hero-2:#0E3B3A; --hero-ink:#EEF8F6; --hero-muted:#A8C3C6; --hero-line:rgba(255,255,255,.14); --hero-gain:#5BE0A8; --hero-loss:#FF8A80; --hero-neg:#FFB3AD; --hero-debt:#8EC5FF;
   --c1:#3F5BD9; --c2:#D9731A; --c3:#0F8F7A; --c4:#C93D72; --c5:#7B4FD0; --c6:#1F86C7; --c7:#A8800F; --c8:#4F7F2E; --c9:#D2523B; --c10:#0E8A8A; --c11:#6B7190;
-  --shadow:0 1px 2px rgba(20,23,58,.05),0 6px 18px rgba(20,23,58,.06); --shadow-2:0 12px 32px rgba(10,12,40,.22);
+  --shadow:0 1px 2px rgba(12,27,38,.05),0 6px 18px rgba(12,27,38,.06); --shadow-2:0 12px 32px rgba(6,18,26,.22);
   --display:"Sora","Avenir Next",system-ui,sans-serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0D0F22; --surface:#161935; --surface-2:#1C2042; --ink:#EEF0FA; --muted:#A6ABC8; --faint:#5F6488; --line:#2A2E52; --grid:#252A4D;
-  --brand:#B3BCFF; --brand-ink:#14173A; --accent:#FFC24D; --accent-ink:#2A1E00;
+  --bg:#071017; --surface:#0F1C25; --surface-2:#14242F; --ink:#EAF4F7; --muted:#9FB4BF; --faint:#566B77; --line:#203440; --grid:#1B2D38;
+  --brand:#5FE6AE; --brand-ink:#03291A; --accent:#5FE6AE; --accent-ink:#03291A;
   --gain:#3DD598; --gain-fill:#2FC488; --gain-btn:#0B7A4E; --loss:#FF7A70; --loss-fill:#FF6B60; --loss-btn:#C93A31; --warn:#F5B83D; --warn-fill:#F5B83D;
-  --hero:#1A1E4C; --hero-2:#2A2F7E;
+  --hero:#0D2230; --hero-2:#0F4243;
   --c1:#8EA2FF; --c2:#FFAA5C; --c3:#4FD1BC; --c4:#FF85B1; --c5:#B89BFF; --c6:#6CC4FF; --c7:#E8C14A; --c8:#9BCB6B; --c9:#FF8B73; --c10:#5ED6D6; --c11:#A6ABC8;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); --shadow-2:0 14px 36px rgba(0,0,0,.5); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0D0F22; --surface:#161935; --surface-2:#1C2042; --ink:#EEF0FA; --muted:#A6ABC8; --faint:#5F6488; --line:#2A2E52; --grid:#252A4D;
-  --brand:#B3BCFF; --brand-ink:#14173A; --accent:#FFC24D; --accent-ink:#2A1E00;
+  --bg:#071017; --surface:#0F1C25; --surface-2:#14242F; --ink:#EAF4F7; --muted:#9FB4BF; --faint:#566B77; --line:#203440; --grid:#1B2D38;
+  --brand:#5FE6AE; --brand-ink:#03291A; --accent:#5FE6AE; --accent-ink:#03291A;
   --gain:#3DD598; --gain-fill:#2FC488; --gain-btn:#0B7A4E; --loss:#FF7A70; --loss-fill:#FF6B60; --loss-btn:#C93A31; --warn:#F5B83D; --warn-fill:#F5B83D;
-  --hero:#1A1E4C; --hero-2:#2A2F7E;
+  --hero:#0D2230; --hero-2:#0F4243;
   --c1:#8EA2FF; --c2:#FFAA5C; --c3:#4FD1BC; --c4:#FF85B1; --c5:#B89BFF; --c6:#6CC4FF; --c7:#E8C14A; --c8:#9BCB6B; --c9:#FF8B73; --c10:#5ED6D6; --c11:#A6ABC8;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); --shadow-2:0 14px 36px rgba(0,0,0,.5); color-scheme:dark}
 *{box-sizing:border-box}
